@@ -2,7 +2,6 @@ function dns {
   echo "";
   dig +noall +answer $1 any
   echo "";
-  echo "";
 }
 
 function ip {
