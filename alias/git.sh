@@ -41,5 +41,13 @@ function gitdeletetag {
 }
 function gitopenweb {
   url=$(git remote -v | awk 'NR==1{print $2}' | sed 's/\.git$//' | sed 's/:/\//' | sed 's/git@/https:\/\//')
-  open $url
+  if command -v xdg-open &> /dev/null; then
+    xdg-open $url &> /dev/null;
+  elif command -v open &> /dev/null; then
+    open $url &> /dev/null;
+  elif command -v start &> /dev/null; then
+    start $url &> /dev/null;
+  else
+    echo "Não foi possível abrir a URL."
+  fi
 }
