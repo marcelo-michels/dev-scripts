@@ -4,7 +4,7 @@ function dns {
   echo "";
 }
 
-function ip {
+function ipLocation {
   REQUEST_HEADER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
   # check if have a parameter $1 
   if [ -z "$1" ]; then
