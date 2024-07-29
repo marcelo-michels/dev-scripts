@@ -21,6 +21,7 @@ alias gittags="git tag -l | xargs git tag -d && git fetch -t && git tag -l"
 alias gitresetmaster="git reset --hard origin/master"
 alias gitresetdevelop="git reset --hard origin/develop"
 alias gitclean="gitfp && npx git-removed-branches --prune --force"
+alias gitConfigList="git config --list"
 
 function gitp {
   BRANCH_NAME=$(git symbolic-ref --short HEAD)
