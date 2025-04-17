@@ -11,11 +11,11 @@ git config --global user.email "marcelo@michels.app"
 git config --local user.name "Marcelo Michels"
 git config --local user.email "marcelo@michels.app"
 
-# Abre as configuracoes 
+# Abre as configurações 
 git config --global --edit
 git config --local --edit
 
 # Alterado o editor do git
-git config --global core.editor "code"
-git config --local core.editor "code" 
+git config --global core.editor "cursor --wait"
+git config --local core.editor "cursor --wait" 
 
