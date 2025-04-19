@@ -1,4 +1,28 @@
-# docker
+# Docker
+
+Scripts e configurações para facilitar o uso do Docker no desenvolvimento.
+
+## Estrutura
+
+- **mongo/**: Configuração do MongoDB com `docker-compose.yml`.
+- **postgres/**: Configuração do PostgreSQL com `docker-compose.yml`.
+- **rabbitmq/**: Configuração do RabbitMQ com `docker-compose.yml`.
+- **redis/**: Configuração do Redis com `docker-compose.yml`.
+
+## Como Usar
+
+1. Navegue até a pasta do serviço desejado, por exemplo:
+   ```bash
+   cd ~/dev-scripts/docker/mongo
+   ```
+2. Inicie o serviço com o Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
+3. Para parar o serviço:
+   ```bash
+   docker-compose down
+   ```
 
 ## Docker Version
 
@@ -39,4 +63,4 @@
 
 ## entrar no terminal de um container
 
-  `docker exec -it <container_id> bash`  
+  `docker exec -it <container_id> bash`
