@@ -52,3 +52,45 @@ function gitopenweb {
     echo "Não foi possível abrir a URL."
   fi
 }
+
+# gitclone – clona (ou abre) repositório GitHub e abre o Cursor
+function gitclone () {
+  # === 1. Validação ========================================================
+  if [[ $# -ne 1 ]]; then
+    echo "Uso: gitclone <url-github>"
+    return 1
+  fi
+  local url="${1%/}"     # remove / final, se houver
+  local owner repo dest
+
+  # === 2. Regex para extrair owner/repo ===================================
+  if [[ $url =~ '^git@github\.com:([^/]+)/([^/.]+)(\.git)?$' ]]; then
+    owner=${match[1]}
+    repo=${match[2]}
+  elif [[ $url =~ '^https?://github\.com/([^/]+)/([^/.]+)(\.git)?$' ]]; then
+    owner=${match[1]}
+    repo=${match[2]}
+  else
+    echo "URL não reconhecida: $url"
+    return 2
+  fi
+
+  # === 3. Caminho de destino ==============================================
+  dest="$HOME/git/$owner/$repo"
+  mkdir -p "$HOME/git/$owner"
+
+  # === 4. Clona (se necessário) ============================================
+  if [[ -d "$dest/.git" ]]; then
+    echo "Repositório já existe: $dest"
+  else
+    echo "Clonando com: git clone git@github.com:$owner/$repo.git $dest"
+    git clone "git@github.com:$owner/$repo.git" "$dest" || return $?
+  fi
+
+  # === 5. Abre no Cursor ===================================================
+  if command -v cursor >/dev/null; then
+    cursor "$dest" &
+  else
+    echo "Editor Cursor não encontrado; abra manualmente em $dest"
+  fi
+}
