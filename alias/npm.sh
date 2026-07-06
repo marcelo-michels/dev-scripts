@@ -72,7 +72,7 @@ function npmi {
       ;;
     "yarn")
       echo "📦 Instalando dependências com yarn..."
-      yarn install
+      yarn install --frozen-lockfile
       ;;
     "pnpm")
       echo "📦 Instalando dependências com pnpm..."
