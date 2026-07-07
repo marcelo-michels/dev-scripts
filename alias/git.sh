@@ -53,7 +53,7 @@ function gitopenweb {
   fi
 }
 
-# gitclone – clona (ou abre) repositório GitHub e abre o Cursor
+# gitclone – clona (ou abre) repositório GitHub e abre o VS Code
 function gitclone () {
   # === 1. Validação ========================================================
   if [[ $# -ne 1 ]]; then
@@ -87,10 +87,10 @@ function gitclone () {
     git clone "git@github.com:$owner/$repo.git" "$dest" || return $?
   fi
 
-  # === 5. Abre no Cursor ===================================================
-  if command -v cursor >/dev/null; then
-    cursor "$dest" &
+  # === 5. Abre no VS Code ===================================================
+  if command -v code >/dev/null; then
+    code "$dest" &
   else
-    echo "Editor Cursor não encontrado; abra manualmente em $dest"
+    echo "Editor VS Code não encontrado; abra manualmente em $dest"
   fi
 }

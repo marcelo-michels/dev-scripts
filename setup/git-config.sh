@@ -16,6 +16,6 @@ git config --global --edit
 git config --local --edit
 
 # Alterado o editor do git
-git config --global core.editor "cursor --wait"
-git config --local core.editor "cursor --wait" 
+git config --global core.editor "code"
+git config --local core.editor "code" 
 
